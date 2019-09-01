@@ -1,7 +1,15 @@
 {
   "name": "shop_challenge_vue",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "1.0.0",
+  "author": "Timothy Macharia",
+  "description": "https://github.com/tmacharia/shop-challenge-vue.git",
+  "keywords": [
+    "shops",
+    "geolocation"
+  ],
+  "readme": "https://github.com/tmacharia/shop-challenge-vue/blob/master/README.md",
+  "repository": "https://github.com/tmacharia/shop-challenge-vue",
   "devDependencies": {
     "@types/webpack-env": "^1.13.0",
     "aspnet-webpack": "^2.0.1",
