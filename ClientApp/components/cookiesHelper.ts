@@ -39,7 +39,7 @@ function getCookie(name: string) {
 function setCookie(name: string, value: string, expInHours: number=720) {
     var exp_date = new Date();
     exp_date.setTime(exp_date.getTime() + (expInHours * 60 * 60 * 1000));
-    var expires = "expires=" + exp_date.toString();
+    var expires = "expires=" + exp_date.toUTCString();
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
 /**
