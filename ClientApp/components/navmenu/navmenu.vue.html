@@ -18,9 +18,21 @@
                         </router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link to="/signin" class="nav-link">
-                            Sign In
-                        </router-link>
+                        <div v-if="!loggedIn">
+                            <router-link to="/signin" class="nav-link">
+                                Sign In
+                            </router-link>
+                        </div>
+                        <div v-if="loggedIn && user.length < 1">
+                            <router-link to="/" class="nav-link">
+                                logged in
+                            </router-link>
+                        </div>
+                        <div v-if="loggedIn && user.length > 0">
+                            <router-link to="/" class="nav-link">
+                                <i class="ion ion-md-person"></i> {{user}}
+                            </router-link>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -30,3 +42,4 @@
 </template>
 
 <style src="./navmenu.css" />
+<script src="./navmenu.ts"></script>
