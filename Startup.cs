@@ -1,14 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Shop.Web.Models;
 
-namespace shop_challenge_vue
+namespace Shop.Web
 {
     public class Startup
     {
@@ -23,6 +22,8 @@ namespace shop_challenge_vue
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddDbContext<ShopDbContext>(x => x.UseSqlServer(Configuration["ConnectionString"]));
+            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<ShopDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +43,7 @@ namespace shop_challenge_vue
             }
 
             app.UseStaticFiles();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
