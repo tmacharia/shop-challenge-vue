@@ -1,4 +1,4 @@
-# Nearyby Shops
+# Nearby Shops
 [![Build status](https://ci.appveyor.com/api/projects/status/kksgy2fifpuqaeln?svg=true)](https://ci.appveyor.com/project/tmacharia/shop-challenge-vue)
 
 Coding challenge of an app listing shops nearby
