@@ -12,8 +12,19 @@
             <a href="/account/signout" class="btn btn-lg btn-dark">
                 <i class="ion ion-md-log-out"></i> Sign Out
             </a>
+            <br/>
+            <br/>
+            <h6 v-if="disliked">
+                <span class="h3"><i class="ion ion-md-alert"></i></span>
+                 <br/>
+                 <p>
+                    {{disliked}} shops that you un-favourited are <b>hidden</b>. You will see them two hrs from the
+                     time each one was disliked.
+                 </p>
+            </h6>
         </center>
     </main>
 </template>
 
 <style src="./account.css" />
+<script src="./account.ts"></script>

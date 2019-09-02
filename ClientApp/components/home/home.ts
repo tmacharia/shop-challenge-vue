@@ -23,9 +23,12 @@ export default class ShopComponent extends Vue {
             .then(data => {
                 var liked = cookies.likedShops();
                 this.shops = data.filter((shop) => {
-                    var index = liked.indexOf(shop.id);
-                    if (index == -1) {
-                        return shop;
+                    var dislikedCookieKey = 'disliked-shop-' + shop.id;
+                    if (!cookies.checkIfExists(dislikedCookieKey)) {
+                        var index = liked.indexOf(shop.id);
+                        if (index == -1) {
+                            return shop;
+                        }
                     }
                 }).sort((a, b) => { return a.distance - b.distance});
             }).catch(error => {
@@ -40,6 +43,14 @@ export default class ShopComponent extends Vue {
         cookies.set(cookies.likedCookieKey, cookie_value);
 
         // now remove the liked shop from nearby shops
+        this.shops = this.shops.filter((s) => { return s.id != shop.id });
+    };
+
+    dislikeShop(shop: Shop) {
+        var cookieKey = 'disliked-shop-' + shop.id;
+
+        cookies.set(cookieKey, 'true', 2);
+        // now remove the disliked shop from nearby shops list
         this.shops = this.shops.filter((s) => { return s.id != shop.id });
     }
 }
