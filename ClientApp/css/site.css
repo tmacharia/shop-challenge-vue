@@ -17,8 +17,8 @@ ul{
     padding: .7rem;
 }
 .panel-body img{
-    min-height: 110px;
-    max-height: 110px;
+    min-height: 150px;
+    max-height: 150px;
 }
 .card-title{
     margin-bottom: 8px;
