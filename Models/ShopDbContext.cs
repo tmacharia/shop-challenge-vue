@@ -18,6 +18,8 @@ namespace Shop.Web.Models
         {
             base.OnModelCreating(builder);
 
+            Database.EnsureCreated();
+
             // seed database with initial shops
             List<ShopModel> shops = new List<ShopModel>()
             {
