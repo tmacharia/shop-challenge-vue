@@ -47,7 +47,7 @@ npm install
 Installs all devDependencies needed as outlined in _package.json_
  **Nuget Packages Restore**
  ```bash
- dotnet restore
+ npm run restore
  ```
  This will restore all nuget packages used in the project plus load the target framework/sdk for the projects.
 
