@@ -1,3 +1,54 @@
+html, body {
+    background-color: #e4e4e4;
+}
+
+ul{
+    list-style-type: none;
+}
+.panel{
+    background-color: white;
+    margin-bottom: 15px;
+}
+.panel:hover{
+    cursor: pointer;
+    box-shadow: 1px 12px 15px 2px #cbcbcb;
+}
+.panel-body{
+    padding: .7rem;
+}
+.panel-body img{
+    min-height: 110px;
+    max-height: 110px;
+}
+.card-title{
+    margin-bottom: 8px;
+}
+.card-title-tiny{
+    font-size: .6em;
+    margin-top: 6px;
+}
+.card-text{
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
+.btn{
+    padding: 0px 6px;
+}
+.btn:hover{
+    background-color: black;
+    border-color: black;
+}
+.btn-danger {
+    background-color: #d20014;
+    border-color: #d20014;
+}
+.btn-success {
+    background-color: #01ad28;
+    border-color: #01ad28;
+}
+.badge-secondary {
+    background-color: #795548;
+}
 @media (max-width: 767px) {
     /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
     body {
