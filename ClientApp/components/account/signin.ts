@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import Axios from 'axios';
-import $ from 'jquery';
 
 interface User {
     Email: string;

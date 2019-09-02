@@ -22,19 +22,19 @@ namespace Shop.Web.Controllers
         public async Task<IActionResult> Login([FromBody]UserViewModel model)
         {
             if (!ModelState.IsValid)
-                return BadRequest(GetModelStateErrors());
+                return BadRequest(GetModelValidationErrorsAsArray());
 
             if (!model.Email.IsEmailValid())
             {
                 ModelState.AddModelError("Email", "Incorrect email format");
-                return BadRequest(GetModelStateErrors());
+                return BadRequest(GetModelValidationErrorsAsArray());
             }
 
             var user = await _userManager.FindByEmailAsync(model.Email);
             if(user == null)
             {
                 ModelState.AddModelError("User", "User does not exist.");
-                return BadRequest(GetModelStateErrors());
+                return BadRequest(GetModelValidationErrorsAsArray());
             }
             else
             {
@@ -46,7 +46,7 @@ namespace Shop.Web.Controllers
                 else
                 {
                     ModelState.AddModelError("User", "Incorrect email/password combination.");
-                    return BadRequest(GetModelStateErrors());
+                    return BadRequest(GetModelValidationErrorsAsArray());
                 }
             }
         }
@@ -54,12 +54,12 @@ namespace Shop.Web.Controllers
         public async Task<IActionResult> Register([FromBody]UserViewModel model)
         {
             if (!ModelState.IsValid)
-                return BadRequest(GetModelStateErrors());
+                return BadRequest(GetModelValidationErrorsAsArray());
 
             if(!model.Email.IsEmailValid())
             {
                 ModelState.AddModelError("Email", "Incorrect email format");
-                return BadRequest(GetModelStateErrors());
+                return BadRequest(GetModelValidationErrorsAsArray());
             }
 
             var user = new IdentityUser() { Email = model.Email, UserName = model.Email.Split("@")[0] };
@@ -75,11 +75,11 @@ namespace Shop.Web.Controllers
                 {
                     ModelState.AddModelError(error.Code, error.Description);
                 });
-                return BadRequest(GetModelStateErrors());
+                return BadRequest(GetModelValidationErrorsAsArray());
             }
         }
         [HttpGet("status")]
-        public IActionResult Status()
+        public IActionResult GetUserSignInStatus()
         {
             var user_status = new
             {
@@ -89,7 +89,17 @@ namespace Shop.Web.Controllers
 
             return Ok(user_status);
         }
-        private string[] GetModelStateErrors()
+
+        [HttpGet("signout")]
+        public async Task<IActionResult> SignOut()
+        {
+            // sign the current user out of the application and redirect them 
+            // to the main page.
+            await _signInManager.SignOutAsync();
+            return Redirect("/");
+        }
+
+        private string[] GetModelValidationErrorsAsArray()
         {
             if (!ModelState.IsValid)
             {

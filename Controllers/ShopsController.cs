@@ -28,7 +28,7 @@ namespace Shop.Web.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var shops = _context.Shops.OrderBy(x => x.Distance);
+            var shops = _context.Shops.OrderBy(x => x.Distance); // sorts shops in ascending order by distance.
             return Ok(shops);
         }
     }

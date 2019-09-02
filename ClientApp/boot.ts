@@ -10,6 +10,7 @@ const routes = [
     { path: '/shops/preferred', component: require('./components/preferred/preferred.vue.html') },
     { path: '/signin', component: require('./components/account/signin.vue.html') },
     { path: '/signup', component: require('./components/account/signup.vue.html') },
+    { path: '/account', component: require('./components/account/account.vue.html') },
 ];
 
 new Vue({
