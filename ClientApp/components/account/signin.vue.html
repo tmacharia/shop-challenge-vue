@@ -7,7 +7,7 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <form>
+        <form v-on:submit="submitForm">
             <div class="form-group required">
                 <label for="Email">Email</label>
                 <input type="email" v-model="user.Email" required placeholder="john@example.com" />
