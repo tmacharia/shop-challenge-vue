@@ -7,4 +7,8 @@ import { Component } from 'vue-property-decorator';
     }
 })
 export default class AppComponent extends Vue {
+    title: string = 'Nearby Shops';
+    mounted() {
+        document.title = this.title;
+    }
 }

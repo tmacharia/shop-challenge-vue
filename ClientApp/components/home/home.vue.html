@@ -1,34 +1,35 @@
 <template>
-    <div class="row">
-        <div class="col-lg-3 col-md-4 col-6" v-if="shops.length" v-for="shop in shops">
-            <div class="panel">
-                <div class="panel-body">
-                    <h5 class="card-title">{{shop.name}}</h5>
-                    <img v-bind:src="shop.imageUrl" class="card-img-top" alt="...">
-                    <p class="card-text">{{shop.description}}</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-6" v-if="shops.length" v-for="shop in shops">
+                <div class="panel">
+                    <div class="panel-body">
+                        <h5 class="card-title">{{shop.name}}</h5>
+                        <img v-bind:src="shop.imageUrl" class="card-img-top" alt="...">
+                        <p class="card-text">{{shop.description}}</p>
 
-                    <div class="row">
-                        <div class="col-3">
-                            <span class="badge badge-dark">
-                                <i class="ion ion-md-pin"></i> {{shop.distance}} {{shop.metricUnit}}
-                            </span>
-                        </div>
-                        <div class="col-9">
-                            <span class="float-right">
-                                <a href="#" class="btn btn-danger" title="Dislike" data-toggle="tooltip">
-                                    <i class="ion ion-md-thumbs-down"></i>
-                                </a>
-                                <a href="#" class="btn btn-success" data-toggle="tooltip" title="Like">
-                                    <i class="ion ion-md-heart"></i>
-                                </a>
-                            </span>
+                        <div class="row">
+                            <div class="col-3">
+                                <span class="badge badge-dark">
+                                    <i class="ion ion-md-pin"></i> {{shop.distance}} {{shop.metricUnit}}
+                                </span>
+                            </div>
+                            <div class="col-9">
+                                <span class="float-right">
+                                    <a href="#" class="btn btn-danger" title="Dislike" data-toggle="tooltip">
+                                        <i class="ion ion-md-thumbs-down"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-success" data-toggle="tooltip" title="Like">
+                                        <i class="ion ion-md-heart"></i>
+                                    </a>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <p v-else><em>Loading...</em></p>
+            <p v-else><em>Loading...</em></p>
+        </div>        
     </div>
 </template>
 

@@ -11,9 +11,11 @@ interface Shop {
 
 @Component
 export default class ShopComponent extends Vue {
+    title: string= 'Nearby Shops';
     shops: Shop[] = [];
 
     mounted() {
+        document.title = this.title;
         fetch('/api/shops')
             .then(response => response.json() as Promise<Shop[]>)
             .then(data => {
