@@ -1,0 +1,281 @@
+html,
+body {
+    /*background-color: #2b2b2b;*/
+    /*color: #fff;*/
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    /*font-size: 13px;*/
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    outline-color: #212121;
+}
+
+header {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    header a h6 {
+        margin-bottom: unset;
+        font-weight: bold;
+    }
+
+a {
+    color: #f3116d;
+}
+
+.pull-right {
+    float: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-gray {
+    color: #858585;
+}
+
+.text-danger {
+    color: #fa1d32 !important;
+}
+
+.error {
+    color: #ffeb3b;
+}
+
+.alert-danger {
+    background-color: #fff;
+    border-color: #fff;
+    color: #2b2b2b;
+}
+
+.pointer:hover {
+    cursor: pointer;
+}
+
+main {
+    width: 22vw;
+    margin: 0 auto;
+}
+
+    main h1 {
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: 300;
+        letter-spacing: -.5px;
+    }
+
+    main form {
+        background-color: white;
+        padding: 18px;
+        padding-bottom: 12px;
+        border: 0.5px solid whitesmoke;
+        border-radius: 5px;
+        margin-top: 15px;
+    }
+
+label {
+    font-weight: 600;
+    width: 100%;
+}
+
+input[type=number],
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=tel] {
+    width: 100%;
+    border: 0.5px solid #e2e2e2;
+    outline: none;
+    border-radius: 3px;
+    padding: .5em .7em;
+    box-shadow: inset 0 1px 2px rgba(27, 31, 35, 0.075);
+    background-color: unset;
+    color: black;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+
+    input[type=number]:focus,
+    input[type=text]:focus,
+    input[type=password]:focus,
+    input[type=email]:focus,
+    input[type=tel]:focus {
+        box-shadow: 0 0 5px #d00b5b;
+    }
+
+input[type=submit],
+input[type=reset] {
+    background-color: #d00b5b;
+    background: linear-gradient(-180deg, #d00b5b, #ae074b 90%);
+    color: #fff;
+    padding: .4em .6em;
+    font-weight: 600;
+    border: 0.4px solid #ae074b;
+    border-radius: 3px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.form-group.required label::after {
+    content: '*';
+    color: #d00b5b;
+}
+
+.password-strength {
+    background-color: whiteSmoke;
+    border-radius: 2px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25) inset;
+    margin: 5px auto;
+    width: 100%;
+    height: 3px;
+    margin-bottom: 25px;
+    margin-top: 15px;
+    display: none;
+}
+
+    .password-strength::after {
+        content: attr(data-text);
+        display: block;
+        color: #fff;
+    }
+
+    .password-strength > span {
+        background-color: #fa1d32;
+        border-radius: 2px;
+        height: 3px;
+        display: block;
+        text-indent: -9999px;
+    }
+
+#new-user-box {
+    margin-top: 12px;
+    border: 0.5px solid #c1c1c1;
+    padding: .8em .6em;
+    border-radius: 3px;
+    text-align: center;
+}
+
+    #new-user-box p {
+        margin: 0px;
+    }
+
+.list-inline li {
+    display: inline-block;
+    padding-right: 8px;
+}
+
+footer {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    font-size: .9em;
+}
+
+@media (max-width: 1125px) {
+    main {
+        width: 25vw;
+    }
+
+    html,
+    body {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 1024px) {
+    main {
+        width: 32vw;
+    }
+
+    html,
+    body {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        width: 38vw;
+    }
+
+    html,
+    body {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        width: 40vw;
+    }
+
+    html,
+    body {
+        font-size: 12.5px;
+    }
+}
+
+@media (max-width: 500px) {
+    main {
+        width: 50vw;
+    }
+
+    html,
+    body {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        width: 55vw;
+    }
+
+    html,
+    body {
+        font-size: 13.5px;
+    }
+}
+
+@media (max-width: 415px) {
+    main {
+        width: 60vw;
+    }
+
+    html,
+    body {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 375px) {
+    main {
+        width: 70vw;
+    }
+
+    html,
+    body {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 320px) {
+    main {
+        width: 80vw;
+    }
+
+    html,
+    body {
+        font-size: 13px;
+    }
+}

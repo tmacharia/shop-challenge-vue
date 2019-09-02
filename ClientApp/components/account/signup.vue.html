@@ -1,0 +1,33 @@
+<template>
+    <main>
+        <h1>{{title}}</h1>
+        <div v-if="error.length" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span><i class="ion ion-md-alert text-danger"></i> {{error}}</span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form>
+            <div class="form-group required">
+                <label for="Email">Email</label>
+                <input type="email" v-model="user.Email" required placeholder="john@example.com" />
+            </div>
+            <div class="form-group required">
+                <label for="Password">Password</label>
+                <input type="password" v-model="user.Password" required placeholder="password" />
+            </div>
+            <input type="submit" value="Sign Up" />
+        </form>
+        <section id="new-user-box">
+            <p>
+                <span>Have an account? </span>
+                <span>
+                    <router-link to="/signin">Login.</router-link>
+                </span>
+            </p>
+        </section>
+    </main>
+</template>
+
+<style src="./account.css" />
+<script src="./signup.ts"></script>
