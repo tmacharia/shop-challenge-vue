@@ -31,7 +31,7 @@ namespace Shop.Web.Models
         {
             DbContextOptionsBuilder<ShopDbContext> builder = new DbContextOptionsBuilder<ShopDbContext>();
             builder.UseSqlServer(configuration["ConnectionString"]);
-            return new ShopDbContext(builder);
+            return new ShopDbContext(builder.Options);
         }
     }
 }
