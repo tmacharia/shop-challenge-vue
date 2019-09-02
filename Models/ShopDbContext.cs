@@ -29,7 +29,10 @@ namespace Shop.Web.Models
                 new ShopModel(){Id =5,Name="Nakumatt",Description="Kenyan Supermarket",Distance=Globals.RandomNum(),ImageUrl="https://businesstoday.co.ke/wp-content/uploads/2018/02/nakumatt-supermarket.jpg"},
                 new ShopModel(){Id =6,Name="Aswak Assalam",Description="Electrical appliances",Distance=Globals.RandomNum(),ImageUrl="https://t1.hespress.com/files/aswakassalam_789587962.jpg"},
                 new ShopModel(){Id =7,Name="Makro",Description="BIG on life",Distance=Globals.RandomNum(),ImageUrl="http://www.fkservis.cz/uploads/references/66/oczm1481v8.jpg"},
-                new ShopModel(){Id =8,Name="Pick n Pay",Description="Chain store in SouthAfrica",Distance=Globals.RandomNum(),ImageUrl="http://www.sabcnews.com/sabcnews/wp-content/uploads/2018/03/pick-n-pay-1.jpg"}
+                new ShopModel(){Id =8,Name="Pick n Pay",Description="Chain store in SouthAfrica",Distance=Globals.RandomNum(),ImageUrl="https://www.moneyweb.co.za/wp-content/uploads/2014/07/Pick-n-pay-3-2-Large1-500x333.jpg"},
+                
+                new ShopModel(){Id=9,Name="Target",Description="Large retail store",Distance=Globals.RandomNum(),ImageUrl="https://media.bizj.us/view/img/425831/target*750xx600-338-0-19.jpg"},
+                new ShopModel(){Id=10,Name="Walmart",Description="Chain of hypermarkets",Distance=Globals.RandomNum(),ImageUrl="https://n4f9d4s8.stackpathcdn.com/wp-content/uploads/2019/08/Walmart.jpg"}
             };
 
             builder.Entity<ShopModel>().HasData(shops.ToArray());
