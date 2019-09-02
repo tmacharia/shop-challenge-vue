@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29209.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shop-challenge-vue", "shop-challenge-vue.csproj", "{ABEC1AD7-EA4E-4635-A358-7E0FB29E7CE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.Web", "Shop.Web.csproj", "{ABEC1AD7-EA4E-4635-A358-7E0FB29E7CE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
