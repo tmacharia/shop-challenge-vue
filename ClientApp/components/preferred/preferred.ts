@@ -13,6 +13,7 @@ interface Shop {
 export default class ShopComponent extends Vue {
     title: string = 'My Preferred Shops';
     shops: Shop[] = [];
+    isLoading: boolean = false;
 
     mounted() {
         document.title = this.title;

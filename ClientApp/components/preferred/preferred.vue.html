@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="col-lg-3 col-md-4 col-6" v-if="shops.length" v-for="shop in shops">
+        <div class="col-lg-3 col-md-4 col-6" v-if="!isLoading && shops.length > 0" v-for="shop in shops">
             <div class="panel">
                 <div class="panel-body">
                     <h5 class="card-title">{{shop.name}}</h5>
@@ -28,7 +28,15 @@
             </div>
         </div>
         
-        <p v-else><em>Loading...</em></p>
+        <div v-if="!isLoading && shops.length < 1" class="container text-center">
+            <h1 class="text-center">
+                <span><i class="ion ion-md-list"></i></span>
+                <br />
+                <span class="h4">List is empty!</span>
+            </h1>
+            <hr style="width:50%;"/>
+            <p>Like any of your favourite nearby shops, and it will appear here for you to access it easily.</p>
+        </div>
     </div>
 </template>
 
