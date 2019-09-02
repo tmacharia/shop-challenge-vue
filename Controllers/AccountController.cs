@@ -38,7 +38,7 @@ namespace Shop.Web.Controllers
             }
             else
             {
-                var res = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
+                var res = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
                 if (res.Succeeded)
                 {
                     return Ok();
