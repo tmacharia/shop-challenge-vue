@@ -9,7 +9,7 @@
     "geolocation"
   ],
   "scripts": {
-    "restore": "dotnet restore Shop.Web.csproj",
+    "restore": "dotnet restore Shop.Web.csproj && npm install",
     "build": "dotnet build Shop.Web.csproj",
 
     "prebuild-dev": "node node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js",
