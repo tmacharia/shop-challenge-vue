@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\components\cookiesHelper.ts" />
     <None Remove="ClientApp\components\home\home.ts" />
     <None Remove="ClientApp\components\navmenu\navmenu.ts" />
     <None Remove="ClientApp\components\preferred\preferred.ts" />
@@ -31,6 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\components\cookiesHelper.ts" />
     <TypeScriptCompile Include="ClientApp\components\home\home.ts" />
     <TypeScriptCompile Include="ClientApp\components\navmenu\navmenu.ts">
       <SubType>Code</SubType>

@@ -1,5 +1,6 @@
 <template>
-    <div class="row">
+    <div class="container">
+            <div class="row">
         <div class="col-lg-3 col-md-4 col-6" v-if="!isLoading && shops.length > 0" v-for="shop in shops">
             <div class="panel">
                 <div class="panel-body">
@@ -15,11 +16,8 @@
                         </div>
                         <div class="col-9">
                             <span class="float-right">
-                                <a href="#" class="btn btn-danger" title="Dislike" data-toggle="tooltip">
-                                    <i class="ion ion-md-thumbs-down"></i>
-                                </a>
-                                <a href="#" class="btn btn-success" data-toggle="tooltip" title="Like">
-                                    <i class="ion ion-md-heart"></i>
+                                <a v-on:click="removeLikedShop(shop)" class="btn btn-danger text-white" title="Remove from my list" data-toggle="tooltip">
+                                    <i class="ion ion-md-trash"></i> Remove
                                 </a>
                             </span>
                         </div>
@@ -37,6 +35,8 @@
             <hr style="width:50%;"/>
             <p>Like any of your favourite nearby shops, and it will appear here for you to access it easily.</p>
         </div>
+    </div>
+
     </div>
 </template>
 

@@ -25,11 +25,10 @@ export default class NavMenuComponent extends Vue {
         // get the current route
         var path = window.location.pathname;
         // get the nav-link with the href equal to the current route
-        var navs = $('.nav-link').filter((index, link) => {
-            var attrib = ($(link)[0].attributes.getNamedItem('href') as Attr);
-            if (attrib != null) {
-                console.log(attrib.value);
-                return attrib.value == path;
+        var navs = $('.nav-link').filter((index, nav_link) => {
+            var href_attribute = ($(nav_link)[0].attributes.getNamedItem('href') as Attr);
+            if (href_attribute != null) {
+                return href_attribute.value == path;
             }
             return false;
         });
