@@ -18,17 +18,15 @@ function doesCookieExist(name: string) {
  */
 function getCookie(name: string) {
     var name = name + "=";
-    var cookie = document.cookie.split(';');
-    for (var i = 0; i < cookie.length; i++) {
-        var c = cookie[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
+    var results = document.cookie.split(';').filter(c => {
+        if (c.includes(name)) {
+            return c;
         }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
+    });
+    if (results.length > 0) {
+        return results[0].split('=')[1];
     }
-    return "";
+    return '';
 }
 /**
  * Add/updates a cookie with the specified value that will last
@@ -41,9 +39,14 @@ function getCookie(name: string) {
 function setCookie(name: string, value: string, expInHours: number=720) {
     var exp_date = new Date();
     exp_date.setTime(exp_date.getTime() + (expInHours * 60 * 60 * 1000));
-    var expires = "expires=" + exp_date.toUTCString();
+    var expires = "expires=" + exp_date.toString();
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
+/**
+ * Returns an integer array with the Id's of all the shops liked by the user
+ * as retrieved from the browser cookies.
+ * @returns {Array<number>}
+ */
 function getLikedShops() {
     var liked_shops: number[] = [];
     // get previously liked shop ids
