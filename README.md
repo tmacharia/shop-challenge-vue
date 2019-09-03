@@ -1,33 +1,34 @@
-# Nearby Shops
-[![Build status](https://ci.appveyor.com/api/projects/status/kksgy2fifpuqaeln?svg=true)](https://ci.appveyor.com/project/tmacharia/shop-challenge-vue)
+# Shopper Store [![Build status](https://ci.appveyor.com/api/projects/status/kksgy2fifpuqaeln?svg=true)](https://ci.appveyor.com/project/tmacharia/shop-challenge-vue)
 
-Coding challenge of an app listing shops nearby
+Shopper store is an application that lists shops near your by distance. It allows you to have your own personal list of favourite/preferred shops that you like for easier access rather than browsing through the entire collection all shops.
 
 <img src="img/shopper.gif"/>
 
+<br/>
+<br/>
+<br/>
+
 # Table of Contents
 
-+ [Introduction]()
-+ [Prerequisites]()
-+ [Installation]()
-+ [Database Seeding]()
-+ [Running]()
-+ [Features]()
-+ [Architecture]()
-    
-    + [Frontend]()
-    + [Backend]()
-+ [Contributing]()
-+ [Authors]()
-+ [License]()
++ [Introduction](#introduction)
++ [Prerequisites](#prerequisites)
++ [Installation](#installation)
++ [Database Seeding](#database-seeding)
++ [Running](#running-application)
++ [Features](#features)
++ [Architecture](#architecture)
+    + [Frontend](#frontend)
+    + [Backend](#backend)
++ [Contributing](#contributing)
++ [Author](#author)
 
-## Introduction
+<h2 id="introduction">Introduction</h2>
 
 To adhere to the technical specifications of the challenge requiring the solution to be a single page application, 
 the application uses [Vue.js](https://vuejs.org/) in the front-end for routing & navigation between pages while the backend is written
 in [Asp.Net Core 2.2.1](https://docs.microsoft.com/en-us/aspnet/core/index?view=aspnetcore-2.2#recommended-learning-path)
 
-## Prerequisites
+<h2 id="prerequisites">Prerequisites</h2>
 
 Below is a list of all the tools & developer resources required to get the project up and running.
 
@@ -39,7 +40,7 @@ Below is a list of all the tools & developer resources required to get the proje
 + [Node.js](https://nodejs.org/) - Required for acquisition of npm packages, running webpack commands e.t.c
 + [Webpack](https://webpack.js.org/) - For bundling & minification of front-end dependecies as we shall see later on in this document.
 
-## Installation
+<h2 id="installation">Installation</h2>
 
 To get the application started on your local machine, first clone this git repository by running the following command on a
 terminal in a folder of your choice.
@@ -77,7 +78,7 @@ npm run build-prod
 ```
 > Builds the project in **Release** mode, generates our static resources & optimizes them by applying **UglifyJsPlugin** to reduce the size of the output js files.
 
-## Database Seeding
+<h2 id="database-seeding">Database Seeding</h2>
 
 To create database schemas & initial seed data to get our application up running, we need to apply the migrations in the _📁 Migrations_ folder.
 
@@ -91,7 +92,7 @@ dotnet ef database update --verbose
 
 That's it! The application is now ready to run.
 
-## Running The Application
+<h2 id="running-application">Running Application</h2>
 
 Just run the following command on a terminal in the root directory of the project
 
@@ -103,6 +104,74 @@ The application will immediately start running:
 
 `http://locahost:5000`
 
-## Application Features
+<h2 id="features">Application Features</h2>
+
++ View Nearby Shops - access this on the main page or by navigating to either of the following paths on your browser: 
+```http
+    http://localhost:5000, http://localhost:5000/shops
+```
++ 
+
+<h2 id="architecture">Architecture</h2>
+<h3 id="frontend">Frontend</h2>
+
+```
+📦ClientApp
+ ┣ 📂components
+ ┃ ┣ 📂account
+ ┃ ┃ ┣ 📜account.css
+ ┃ ┃ ┣ 📜account.ts
+ ┃ ┃ ┣ 📜account.vue.html
+ ┃ ┃ ┣ 📜signin.ts
+ ┃ ┃ ┣ 📜signin.vue.html
+ ┃ ┃ ┣ 📜signup.ts
+ ┃ ┃ ┗ 📜signup.vue.html
+ ┃ ┣ 📂app
+ ┃ ┃ ┣ 📜app.ts
+ ┃ ┃ ┗ 📜app.vue.html
+ ┃ ┣ 📂navmenu
+ ┃ ┃ ┣ 📜navmenu.css
+ ┃ ┃ ┣ 📜navmenu.ts
+ ┃ ┃ ┗ 📜navmenu.vue.html
+ ┃ ┣ 📂preferred-shops
+ ┃ ┃ ┣ 📜preferred-shops.ts
+ ┃ ┃ ┗ 📜preferred-shops.vue.html
+ ┃ ┣ 📂shops
+ ┃ ┃ ┣ 📜shops.ts
+ ┃ ┃ ┗ 📜shops.vue.html
+ ┃ ┗ 📜cookiesHelper.ts
+ ┣ 📂css
+ ┃ ┗ 📜site.css
+ ┗ 📜boot.ts
+ ```
+
+<h3 id="backend">Backend</h2>
+
+<h2 id="contributing">Contributing</h2>
+
+Just fork this repository to get started. 
+
+**N.B** Follow the project's current structure & methodologies when adding new features to enable consitency in throughout the project. 
+
+#### For Example:
+
+Let's say you want to add a new feature, below are some guidelines to get you started:
+
+1. Create a new page - by adding a new component in _ClientApp/components/{feature-name}/_. Remember to use a descriptive name that symbolizes what your feature does.
+2. Add html, css, and Typescript file as it is in the other components.
+3. Register route - add a route in _ClientApp/boot.ts_ that points to your component so users can access it.
+4. If your feature does/requires some server processing, you may need to create a controller in _Controllers/_ folder and add the API endpoints you need. You can call your endpoints from the frontend in your Typescript file using Axios as it is the case _ClientApp/components/shops.ts_ component.
+5. If you need a new database table, all schema definitions are in the _Models/_ folder, once you've added your new class, remember to add it to **ShopDbContext** class so that EntityFramework knows that a new table/migration should be generated.
+
+Once you've made your updates; be it updates, fixes, or new feature developments, create a pull request and your changes will get reviewed and merged to master.
+
+<h2 id="author">Author</h2>
+
+Project written by <b>Timothy Macharia</b>. 
+
+Incase of any questions, drop me an inbox at my <a href="mailto:timothy.macharia@outlook.com">📧 Email</a>
 
 
+## End
+
+This project is part of a coding challenge.
