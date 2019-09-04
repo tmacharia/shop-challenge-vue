@@ -225,9 +225,8 @@ Once you've made your updates; be it updates, fixes, or new feature developments
 
 Project written by <a href="https://github.com/tmacharia">Timothy Macharia</a> 
 
-Incase of any questions, drop me an inbox at 
-<a href="mailto:timothy.macharia@outlook.com">
-<h1>📧My Email</h1>
+Incase of any questions, drop me an inbox at my
+<a href="mailto:timothy.macharia@outlook.com" style="font-size:1.5em;">📧Email
 </a>
 
 <h2 id="credits">Credits</h2>
