@@ -2,7 +2,7 @@
 
 Shopper store is an application that lists shops near your by distance. It allows you to have your own personal list of favourite/preferred shops that you like for easier access rather than browsing through the entire collection all shops.
 
-<img src="img/shopper.gif"/>
+<img src="img/shopper-min.gif"/>
 
 <br/>
 <br/>
@@ -18,9 +18,12 @@ Shopper store is an application that lists shops near your by distance. It allow
 + [Features](#features)
 + [Architecture](#architecture)
     + [Frontend](#frontend)
+        + [Routing](#frontend-routing)
     + [Backend](#backend)
+        + [Design Patterns](#design-patterns)
 + [Contributing](#contributing)
 + [Author](#author)
++ [Credits](#credits)
 
 <h2 id="introduction">Introduction</h2>
 
@@ -106,14 +109,18 @@ The application will immediately start running:
 
 <h2 id="features">Application Features</h2>
 
-+ View Nearby Shops - access this on the main page or by navigating to either of the following paths on your browser: 
-```http
-    http://localhost:5000, http://localhost:5000/shops
-```
-+ 
++ View Nearby Shops - access this on the main page or by navigating to either of the following paths on your browser: (`/shops`)
++ Like Shop - like a shop so that it appears under _My Preferred Shops_ for easy access & hidden from the main page.
++ Dislike Shop - unfavourite a shop by disliking it so that it's hidden from the mainpage for the next 2 hours.
++ Remove Preferred Shop - deletes a shop from the list of _My Preferred Shops_ and unhides from the mainpage. (`/shops/preferred`)
++ User SignUp - allows users to signup/register an account using an email address, username & password. (`/account/signup`)
++ User SignIn - allows already registered users to sign in to their account. (`/account/signin`)
 
 <h2 id="architecture">Architecture</h2>
 <h3 id="frontend">Frontend</h2>
+
+Using vue.js, we modularize all our features/requirements into components with each having it's own folder as shown in the figure below.
+
 
 ```
 📦ClientApp
@@ -145,13 +152,62 @@ The application will immediately start running:
  ┗ 📜boot.ts
  ```
 
+ <h4 href="frontend-routing">Routing</h4>
+
+ In _boot.ts_, which acts as the main entry point for our frontend application, we register routes for all our features that will instruct the browser what to render for what routes.
+
+ <img src="img/vue-routes-min.png" alt="Frontend Routing image"/>
+
 <h3 id="backend">Backend</h2>
+
+Server-side solution architecture, structure & organization.
+
+<img src="img/backend-structure-min.png" alt="backend solution structure image"/>
+
+<h4 id="design-patterns">Design Patterns & Principles</h4>
+
+Below is a list of some of the design patterns, principles and best practises in accordance to the framework used (AspNet Core) & general software engineering guidelines:
+
+1 [Inversion of Control Containers & Dependency Injection Pattern](https://martinfowler.com/articles/injection.html#InversionOfControl)
+
+> Inversion of control is all about giving control to the container to get instance objects rather than creating objects using the **new operator**, let the container do that for you.
+
+<img src="img/di-container-min.png" alt="DI container image"/>
+
+<i>
+    As you can see in the figure above, we are adding <b>ShopDbContext</b> to the default Asp.Net Core container so that it can be available to any controller at runtime.
+    <br/><br/>
+    We are also configuring <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity-custom-storage-providers?view=aspnetcore-2.2">Microsoft ASP.NET Core Identity</a> Users model, Roles model, and the storage provider for these models. This will in turn avail identity interfaces, and other methods to use in user account membership & access control.
+    <br/><br/>
+    Let's now see how we use the added services in our controllers/Api Endpoints.
+</i>
+
+**Dependency Injection in AccountsController**
+<br/>
+
+<img src="img/di-injection-account-controller-min.png" alt="DI in account controller image"/>
+
+<i>
+Here, we are using constructor injection to provide our controller with the services it requires which are already created/initialized by the DI container. This services are used in user account login & registration.
+</i>
+
+**Dependency Injection in ShopsController**
+<br/>
+
+<img src="img/di-injection-shops-controller-min.png" alt="DI in shops controller image"/>
+
+<i>
+Here, we are also using contructor injection to avail this controller with <b>ShopsDbContext</b> from the DI container so that we access the list of registered shops in the database.
+</i>
+
+<br/>
+<br/>
 
 <h2 id="contributing">Contributing</h2>
 
 Just fork this repository to get started. 
 
-**N.B** Follow the project's current structure & methodologies when adding new features to enable consitency in throughout the project. 
+>**N.B** Follow the project's current structure & methodologies when adding new features to enable consitency in throughout the project. 
 
 #### For Example:
 
@@ -167,11 +223,13 @@ Once you've made your updates; be it updates, fixes, or new feature developments
 
 <h2 id="author">Author</h2>
 
-Project written by <b>Timothy Macharia</b>. 
+Project written by <a href="https://github.com/tmacharia">Timothy Macharia</a> 
 
-Incase of any questions, drop me an inbox at my <a href="mailto:timothy.macharia@outlook.com">📧 Email</a>
+Incase of any questions, drop me an inbox at 
+<a href="mailto:timothy.macharia@outlook.com">
+<h1>📧My Email</h1>
+</a>
 
+<h2 id="credits">Credits</h2>
 
-## End
-
-This project is part of a coding challenge.
+This project is part of a coding challenge by <a href="https://github.com/hiddenfounders">United Remote</a>

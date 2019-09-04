@@ -8,10 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ClientApp\components\home\**" />
+    <Compile Remove="ClientApp\components\preferred\**" />
+    <Content Remove="ClientApp\components\home\**" />
+    <Content Remove="ClientApp\components\preferred\**" />
+    <EmbeddedResource Remove="ClientApp\components\home\**" />
+    <EmbeddedResource Remove="ClientApp\components\preferred\**" />
+    <None Remove="ClientApp\components\home\**" />
+    <None Remove="ClientApp\components\preferred\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="ClientApp\components\cookiesHelper.ts" />
-    <None Remove="ClientApp\components\home\home.ts" />
     <None Remove="ClientApp\components\navmenu\navmenu.ts" />
-    <None Remove="ClientApp\components\preferred\preferred.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,11 +42,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\components\cookiesHelper.ts" />
-    <TypeScriptCompile Include="ClientApp\components\home\home.ts" />
     <TypeScriptCompile Include="ClientApp\components\navmenu\navmenu.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="ClientApp\components\preferred\preferred.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
   </ItemGroup>
