@@ -11,11 +11,9 @@
   "scripts": {
     "restore": "dotnet restore Shop.Web.csproj && npm install",
     "build": "dotnet build Shop.Web.csproj",
-
     "prebuild-dev": "node node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js",
     "build-dev": "dotnet build Shop.Web.csproj --configuration Debug",
     "postbuild-dev": "node node_modules/webpack/bin/webpack.js",
-
     "prebuild-prod": "node node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js --env.prod",
     "build-prod": "dotnet build Shop.Web.csproj --configuration Release",
     "postbuild-prod": "node node_modules/webpack/bin/webpack.js --env.prod"
