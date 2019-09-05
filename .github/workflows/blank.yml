@@ -1,0 +1,15 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Restore Packages
+      run: npm run restore
+    - name: Building Project (Development)
+      run: npm run build-dev
